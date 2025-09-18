@@ -1,0 +1,20 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+body{
+
+  background-color: linear-gradient(135deg,red,blue);
+
+
+}
+
+.ayushAnimation{
+ 
+  text-align: center;
+  color: blue;
+
+}
