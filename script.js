@@ -32,18 +32,23 @@ const moveBallWithRotation = () => {
   const ballSize = ball.offsetWidth;
   const screenWidth = window.innerWidth;
 
-  position += 2;
+  position += 10;
+  console.log("It is the pos",position);
+  console.log("It is the ball size",ballSize)
 
   if(position >= screenWidth-ballSize)
   {
-    position = 5;
+    position = 0;
   }
 
   if (position % ballSize == 0 && nameIndex < myName.length) {
+     
+  
     const div = document.createElement("div");
     div.classList.add("nameBall");
     div.innerText = `${myName[nameIndex]}`
     div.style.position = 'absolute'
+    div.style.left = `${position}px`
    section.appendChild(div)
 
  
@@ -55,11 +60,16 @@ const moveBallWithRotation = () => {
 
   ball.style.transform = `translateX(${position}px) rotate3d(0,0,1,${position}deg)`;
 
-  requestAnimationFrame(moveBallWithRotation);
+   let ballAnimation = requestAnimationFrame(moveBallWithRotation);
+  if(nameIndex === myName.length)
+{ 
+  console.log(nameIndex,myName.length)
+  cancelAnimationFrame(ballAnimation)
+}
 };
 
 requestAnimationFrame(moveBallWithRotation);
-
+  
 
 
 

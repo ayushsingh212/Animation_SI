@@ -7,13 +7,14 @@
 
 body{
 
-  background: linear-gradient(135deg,red,blue);
+background: linear-gradient(135deg, violet, blue, red);
   max-width: 100vw;
 
 }
 .nameAndLittleAnimation{
   width: 100vw;
   height: 50vh;
+  
   background-color: blue;
 }
 .ayushAnimation{
@@ -41,16 +42,15 @@ body{
   justify-content: center;
   align-items: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: medium;
-  font-weight: 800;
+  font-size: 3rem;
+  font-weight: 900;
   width: 150px;
   height: 150px;
   list-style: none;
-  /* margin: 50px auto; */
   padding: 0;
   border: 2px solid red;
   border-radius: 50%;
-  background-color: navajowhite;
+background: radial-gradient(circle at 30% 30%, #ffcc70, #ff6600);
   text-align: center;
 }
 .ball li {
@@ -65,6 +65,8 @@ body{
 .myAnimationArea{
   display: flex;
   flex-wrap: wrap;
+  
+  margin: auto;
   background-color: blue;
   position: relative;
 }
