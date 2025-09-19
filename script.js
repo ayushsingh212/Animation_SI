@@ -36,7 +36,7 @@ const moveBallWithRotation = () => {
 
   if(position >= screenWidth-ballSize)
   {
-    position = 0;
+    position = 5;
   }
 
   if (position % ballSize == 0 && nameIndex < myName.length) {
@@ -44,7 +44,7 @@ const moveBallWithRotation = () => {
     div.classList.add("nameBall");
     div.innerText = `${myName[nameIndex]}`
     div.style.position = 'absolute'
-   namePlacee.appendChild(div)
+   section.appendChild(div)
 
  
     nameIndex++; 
@@ -59,3 +59,13 @@ const moveBallWithRotation = () => {
 };
 
 requestAnimationFrame(moveBallWithRotation);
+
+
+
+
+
+
+
+
+
+//  Full Game logic will be writing here
