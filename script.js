@@ -4,6 +4,12 @@ let section = document.getElementsByClassName("myAnimationArea")[0];
 let namePlacee = document.querySelector(".nameContainer")
 
 const items = document.querySelectorAll(".ball li");
+
+
+
+let gameA = document.getElementsByClassName("gameArea")[0];
+let playerA = document.getElementsByClassName("player")[0];
+console.log(playerA)
 const angleValue = 360 / items.length;
 
 items.forEach((item, index) => {
@@ -33,8 +39,8 @@ const moveBallWithRotation = () => {
   const screenWidth = window.innerWidth;
 
   position += 10;
-  console.log("It is the pos",position);
-  console.log("It is the ball size",ballSize)
+  // console.log("It is the pos",position);
+  // console.log("It is the ball size",ballSize)
 
   if(position >= screenWidth-ballSize)
   {
@@ -68,7 +74,7 @@ const moveBallWithRotation = () => {
 }
 };
 
-requestAnimationFrame(moveBallWithRotation);
+   requestAnimationFrame(moveBallWithRotation);
   
 
 
@@ -78,4 +84,30 @@ requestAnimationFrame(moveBallWithRotation);
 
 
 
-//  Full Game logic will be writing here
+
+const moveThePlayer = () => {
+  let playerPos = 0; 
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") playerPos -= 50;  
+    if (e.key === "ArrowRight") playerPos += 50; 
+
+    if (playerPos < 0) playerPos = 0;
+    if (playerPos + playerA.clientWidth > gameA.clientWidth) {
+      playerPos = gameA.clientWidth - playerA.clientWidth;
+    }
+
+    playerA.style.left = playerPos + "px";
+  });
+};
+
+
+
+
+
+moveThePlayer()
+
+
+
+
+
