@@ -100,12 +100,28 @@ const moveThePlayer = () => {
     playerA.style.left = playerPos + "px";
   });
 };
+moveThePlayer();
+    
+function target() {
+      const target = document.createElement("div");
+      target.classList.add("target");
+   
+      const maxS = gameA.clientWidth - 40;
+      const ranX = Math.floor(Math.random() * maxS);
+
+      target.style.left = ranX + "px";
+      target.style.top = "0px";
+
+      gameA.appendChild(target);
+
+
+
+   
+    }
 
 
 
 
-
-moveThePlayer()
 
 
 
