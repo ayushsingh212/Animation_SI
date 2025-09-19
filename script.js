@@ -114,13 +114,93 @@ function target() {
 
       gameA.appendChild(target);
 
-
+       moveTarget(target)
 
    
     }
 
+    
+const bullet =() =>{
+      const bullet = document.createElement("div");
+      bullet.classList.add("bullet");
+
+      const gunInf = playerA.getBoundingClientRect();
+      const gameInf = gameA.getBoundingClientRect();
+
+       console.log("I am here gunn and game info",gunInf,gameInf)
+
+      const bulletXPos = gunInf.left - gameInf.left + gunInf.width / 2 - 10;
+      const bulletYPos = gunInf.top - gameInf.top;
+
+      bullet.style.left = bulletXPos + "px";
+      bullet.style.top = bulletYPos + "px";
+
+      gameA.appendChild(bullet);
+
+      let bulletInterval = setInterval(() => {
+        let y = parseInt(bullet.style.top);
+
+        if (y < 0) {
+          bullet.remove();
+       
+
+          
+          clearInterval(bulletInterval);
 
 
+        } else {
+
+
+          bullet.style.top = (y - 7) + "px";
+
+
+           
+          const bulletI = bullet.getBoundingClientRect();
+          const targets = document.querySelectorAll(".target");
+
+          targets.forEach(target => {
+            const targetI = target.getBoundingClientRect();
+
+            if (
+              bulletI.left < targetI.right &&
+              bulletI.right > targetI.left &&
+              bulletI.top < targetI.bottom &&
+              bulletI.bottom > targetI.top
+            ) {
+              target.remove();
+              bullet.remove();
+              clearInterval(bulletInterval);
+            }
+          });
+        }
+      }, 20);
+    }
+
+   function moveTarget(target) {
+      let targetInterval = setInterval(() => {
+        let y = target.style.top;
+        if (y > gameA.clientHeight - 30) {
+          target.remove();
+          clearInterval(targetInterval);
+        } else {
+          target.style.top = (y + 5) + "px";
+        }
+      }, 30);
+    }
+
+    setInterval(target, 2000);
+
+ document.addEventListener("keydown",(e)=>{
+  
+  if(e.key === " ")
+ {
+
+bullet()
+ }
+
+
+
+ })
 
 
 
