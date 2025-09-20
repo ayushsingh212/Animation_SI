@@ -1,4 +1,6 @@
 let h1 = document.getElementsByClassName("ayushAnimation")[0];
+let h2 = document.getElementsByTagName("h2")[0];
+let scoreA = document.getElementsByTagName("span")[0];
 let ball = document.getElementsByClassName("ball")[0];
 let section = document.getElementsByClassName("myAnimationArea")[0];
 let namePlacee = document.querySelector(".nameContainer")
@@ -119,8 +121,11 @@ function target() {
    
     }
 
+    let score = 0;
     
 const bullet =() =>{
+
+
       const bullet = document.createElement("div");
       bullet.classList.add("bullet");
 
@@ -150,7 +155,7 @@ const bullet =() =>{
 
         } else {
 
-
+        console.log(" I am working")
           bullet.style.top = (y - 7) + "px";
 
 
@@ -169,6 +174,9 @@ const bullet =() =>{
             ) {
               target.remove();
               bullet.remove();
+              score++;
+                 scoreA.innerHTML  = `${score}  Points `
+
               clearInterval(bulletInterval);
             }
           });
@@ -177,8 +185,10 @@ const bullet =() =>{
     }
 
    function moveTarget(target) {
+
+      console.log(" i movetarget working")
       let targetInterval = setInterval(() => {
-        let y = target.style.top;
+        let y =   parseInt(target.style.top);
         if (y > gameA.clientHeight - 30) {
           target.remove();
           clearInterval(targetInterval);
@@ -204,6 +214,8 @@ startButton.addEventListener("click",()=>{
   if(!isPlaying){
     // gameA.innerText = `THE GAME HAS BEEN STARTED`
     isPlaying = true;
+   h2.innerText =`The game has been started`
+
     startButton.style.display = "none";
     moveThePlayer();
     setInterval(target, 2000);
