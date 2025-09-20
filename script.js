@@ -8,10 +8,19 @@ let startButton = document.getElementsByTagName("button")[0];
 
 const items = document.querySelectorAll(".ball li");
 
-
+ 
 
 let gameA = document.getElementsByClassName("gameArea")[0];
 let playerA = document.getElementsByClassName("player")[0];
+
+
+
+
+
+const audio = new Audio("./resources/tank-sound.mp3");
+
+
+
 console.log(playerA)
 const angleValue = 360 / items.length;
 
@@ -214,6 +223,8 @@ startButton.addEventListener("click",()=>{
   if(!isPlaying){
     // gameA.innerText = `THE GAME HAS BEEN STARTED`
     isPlaying = true;
+    audio.loop = true;
+    audio.play()  
    h2.innerText =`The game has been started`
 
     startButton.style.display = "none";
