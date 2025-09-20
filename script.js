@@ -2,6 +2,7 @@ let h1 = document.getElementsByClassName("ayushAnimation")[0];
 let ball = document.getElementsByClassName("ball")[0];
 let section = document.getElementsByClassName("myAnimationArea")[0];
 let namePlacee = document.querySelector(".nameContainer")
+let startButton = document.getElementsByTagName("button")[0];
 
 const items = document.querySelectorAll(".ball li");
 
@@ -100,7 +101,6 @@ const moveThePlayer = () => {
     playerA.style.left = playerPos + "px";
   });
 };
-moveThePlayer();
     
 function target() {
       const target = document.createElement("div");
@@ -188,9 +188,26 @@ const bullet =() =>{
       }, 30);
     }
 
-    setInterval(target, 2000);
 
- document.addEventListener("keydown",(e)=>{
+
+
+
+ let isPlaying = false;
+
+//  gameA.style.display = "none"
+
+// gameA.innerText = `PLEASE START THE GAME `
+
+
+startButton.addEventListener("click",()=>{
+
+  if(!isPlaying){
+    // gameA.innerText = `THE GAME HAS BEEN STARTED`
+    isPlaying = true;
+    startButton.style.display = "none";
+    moveThePlayer();
+    setInterval(target, 2000);
+     document.addEventListener("keydown",(e)=>{
   
   if(e.key === " ")
  {
@@ -201,9 +218,5 @@ bullet()
 
 
  })
-
-
-
-
-
-
+  }
+})
